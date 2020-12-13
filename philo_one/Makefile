@@ -1,6 +1,6 @@
 NAME = philo_one
 
-SRC = main.c options.c output.c lib.c
+SRC = main.c options.c output.c lib.c ft_itoa.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
@@ -20,7 +20,7 @@ $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HDR_FULL) | $(OBJ_DIR)
-	gcc $(FLAGS) -g -c -I include -o $@ $<
+	gcc $(FLAGS) -pthread -g -c -I include -o $@ $<
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
